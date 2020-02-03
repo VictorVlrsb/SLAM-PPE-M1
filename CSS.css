@@ -10,12 +10,12 @@ h4>img{
 }
 
 h1 {
-	font-size : 50px;
-	display : block;
+	font-size : 300%;
 	text-align: center;
     color: dodgerblue;
     border: 5px solid black;
-    width : 500px;
+    width : 39%;
+		text-align: center;
     margin-left: auto;
 	margin-right: auto;
 }
@@ -62,11 +62,15 @@ li a:hover {
 }
 
 h2{
+	margin-left: 20%;
+	margin-right: 20%;
+	text-align: justify;
+	/*
 	text-align: center;
 width : 1000px;
 margin-left: auto;
 margin-right: auto;
-font-size : 35px;
+font-size : 35px;*/
 }
 
 p{
@@ -74,8 +78,8 @@ p{
 width : 1400px;
 margin-left: 10%;
 font-size : 20px;*/
-margin-left: 30%;
-margin-right: 30%;
+margin-left: 20%;
+margin-right: 20%;
 text-align: justify;
 
 }
