@@ -5,7 +5,6 @@
     <link rel="stylesheet" href="CSS.css">
     <title> Maison 1 </title>
 </head>
-
 <h4><img src="Images/Accueil.jpg" alt=""></h4>
 
 
@@ -31,9 +30,35 @@
     <li><a href="Maison5.html">Maison 5</a></li>
   </ul>
   <h1>Rue de l'Epeule à Roubaix </h1>
-<h4><img id ="image" src="Images/Maison1.jpg" alt=""></h4>
-<button onclick="document.getElementById('image').src='Images/maison1.jpg'">Photo précédente</button>
-<button onclick="document.getElementById('image').src='Images/maison1salon.jpg'">Photo suivante</button>
+<h4><div class="carousel">
+<div class="left"><button onclick="ImagePrecedente();">Photo précédente </button></div>
+<div class="image"><img id ="image" src="Images/Maison1.jpg" alt=""></div></h4>
+<div class="rigth"><button onclick="ImageSuivante();">Photo suivante</button>
+</div></div>
+<script>
+
+var Tabimg = ["Images/maison1.jpg","Images/maison1salon.jpg","Images/maison1chambre.jpg"];
+var i=0;
+
+function ImagePrecedente(){
+  i--;
+   if (i<0){
+    i=2;
+   }
+  var vImage=document.getElementById('image');
+  vImage.setAttribute("src",Tabimg[i]);
+}
+function ImageSuivante(){
+  i++;
+   if (i>2){
+    i=0;
+   }
+  var vImage=document.getElementById('image');
+  vImage.setAttribute("src",Tabimg[i]);
+}
+
+</script>
+
 <h2>Prix de vente : 149 500 €</h2>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar sed ante vel sodales. Curabitur vitae ipsum in velit facilisis rhoncus. Suspendisse suscipit tellus ac vestibulum vestibulum. Mauris in lorem odio. Donec cursus nunc ut elit varius, quis mattis lectus rhoncus. Nullam finibus, mauris eu gravida sagittis, erat nisl pellentesque urna, vel gravida felis justo non elit. Ut vitae luctus mi, at blandit massa. Praesent nulla enim, gravida eu molestie sit amet, hendrerit vel ante. Nulla ut nibh sit amet libero vehicula elementum ac sit amet risus. Praesent sagittis molestie faucibus. Curabitur at quam sed dui tincidunt aliquet.</p>
 
