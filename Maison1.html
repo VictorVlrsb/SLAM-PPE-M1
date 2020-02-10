@@ -54,20 +54,20 @@
 
 <script>
 
-var Tabimg = ["Images/maison1.jpg","Images/maison1salon.jpg","Images/maison1chambre.jpg"];
+var Tabimg = ["Images/maison1.jpg","Images/maison1salon.jpg","Images/maison1chambre.jpg","Images/maison1cuisine.jpg"];
 var i=0;
 
 function ImagePrecedente(){
   i--;
    if (i<0){
-    i=2;
+    i=3;
    }
   var vImage=document.getElementById('image');
   vImage.setAttribute("src",Tabimg[i]);
 }
 function ImageSuivante(){
   i++;
-   if (i>2){
+   if (i>3){
     i=0;
    }
   var vImage=document.getElementById('image');

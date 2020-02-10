@@ -29,7 +29,44 @@
     <li><a href="Maison5.html">Maison 5</a></li>
   </ul>
   <h1>Rue de Lannoy à Roubaix</h1>
-<h4><img src="Images/Maison2.png" alt=""></h4>
+<h4><div class="carousel">
+<div class="left">
+  <button onclick="ImagePrecedente();"> < </button>
+</div>
+<div class="image"><img width = 600px height = 450px id ="image" src="Images/Maison2.png" alt="">
+</div>
+<div class="rigth"><button onclick="ImageSuivante();"> > </button>
+</div>
+
+</div>
+
+<script>
+
+var Tabimg = ["Images/maison2.png","Images/maison2salon.jpg","Images/maison2chambre.jpg","Images/maison2cuisine.jpg"];
+var i=0;
+
+function ImagePrecedente(){
+  i--;
+   if (i<0){
+    i=3;
+   }
+  var vImage=document.getElementById('image');
+  vImage.setAttribute("src",Tabimg[i]);
+}
+function ImageSuivante(){
+  i++;
+   if (i>3){
+    i=0;
+   }
+  var vImage=document.getElementById('image');
+  vImage.setAttribute("src",Tabimg[i]);
+}
+</script>
+
+<script type="text/javascript" src="scripts/main.js"></script>
+
+<button2 onclick="alerte();"> ‎‎‎‎‎‏‏‎ ‎ </button2>
+
 <h2>Prix de vente : 229 500 €</h2>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar sed ante vel sodales. Curabitur vitae ipsum in velit facilisis rhoncus. Suspendisse suscipit tellus ac vestibulum vestibulum. Mauris in lorem odio. Donec cursus nunc ut elit varius, quis mattis lectus rhoncus. Nullam finibus, mauris eu gravida sagittis, erat nisl pellentesque urna, vel gravida felis justo non elit. Ut vitae luctus mi, at blandit massa. Praesent nulla enim, gravida eu molestie sit amet, hendrerit vel ante. Nulla ut nibh sit amet libero vehicula elementum ac sit amet risus. Praesent sagittis molestie faucibus. Curabitur at quam sed dui tincidunt aliquet.</p>
 
