@@ -10,12 +10,12 @@ h4>img{
 }
 
 h1 {
-	font-size : 300%;
+	font-size : 50px;
+	display : block;
 	text-align: center;
     color: dodgerblue;
     border: 5px solid black;
-    width : 39%;
-		text-align: center;
+    width : 500px;
     margin-left: auto;
 	margin-right: auto;
 }
@@ -81,7 +81,6 @@ font-size : 20px;*/
 margin-left: 20%;
 margin-right: 20%;
 text-align: justify;
-
 }
 
 .image{
@@ -94,8 +93,8 @@ button{
 	margin: 0px 5px ;
 	padding: 10px;
 	background-color: white;
-	color: black;
 	height: 100%;
+	opacity: 75%;
 
 }
 .left{
