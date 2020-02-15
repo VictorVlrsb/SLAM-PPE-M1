@@ -31,8 +31,21 @@
   <li><a href="Appartement6.html">Appartement 6</a></li>
   <li><a href="Appartement7.html">Appartement 7</a></li>
 </ul>
-  <h1>Rue de Lille à Roubaix </h1>
-<h4><img src="Images/Appartements/Appartement5.jpg" alt=""></h4>
+<button type="button" name="button" onclick="genPDF()">Convertir cette page en PDF</button>
+
+  <div id="content">
+  <h1> Rue de Lille à Roubaix </h1>
+<h4><div class="carousel">
+<div class="left">
+  <button onclick="ImagePrecedente();"> < </button>
+</div>
+<div class="image"><img width = 600px height = 450px id ="image" src="Images\Appartements\appartement5\appartement5.jpg" alt="">
+</div>
+<div class="rigth"><button onclick="ImageSuivante();"> > </button>
+</div>
+
+</div>
+</h4>
 <h2>Prix de vente : 150 500 €</h2>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar sed ante vel sodales. Curabitur vitae ipsum in velit facilisis rhoncus. Suspendisse suscipit tellus ac vestibulum vestibulum. Mauris in lorem odio. Donec cursus nunc ut elit varius, quis mattis lectus rhoncus. Nullam finibus, mauris eu gravida sagittis, erat nisl pellentesque urna, vel gravida felis justo non elit. Ut vitae luctus mi, at blandit massa. Praesent nulla enim, gravida eu molestie sit amet, hendrerit vel ante. Nulla ut nibh sit amet libero vehicula elementum ac sit amet risus. Praesent sagittis molestie faucibus. Curabitur at quam sed dui tincidunt aliquet.</p>
 
@@ -40,5 +53,40 @@
     <a href="Contact.html">
         Contact</a>
 </footer>
+<script>
+
+var Tabimg = ["Images/appartements/appartement5/appartement5.jpg","Images/appartements/appartement5/appartement5cuisine.jpg","Images/appartements/appartement5/appartement5chambre.jpg"];
+var i=0;
+
+function ImagePrecedente(){
+  i--;
+   if (i<0){
+    i=2;
+   }
+  var vImage=document.getElementById('image');
+  vImage.setAttribute("src",Tabimg[i]);
+}
+function ImageSuivante(){
+  i++;
+   if (i>2){
+    i=0;
+   }
+  var vImage=document.getElementById('image');
+  vImage.setAttribute("src",Tabimg[i]);
+}
+</script>
+
+<script src="scripts/html2pdf.bundle.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+function genPDF() {
+  const element = document.getElementById("content");
+  html2pdf()
+    .from(element)
+    .save()
+}
+</script>
+
+
+<script type="text/javascript" src="scripts/main.js"></script>
 </body>
 </html>
