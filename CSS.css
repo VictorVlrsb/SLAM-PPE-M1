@@ -99,10 +99,10 @@ button{
 .left{
 	float: left;
 }
-.rigth{
+.right{
 	float: left;
 }
-.carousel{
+.carrousel{
 	display: flex;
 	justify-content: center;
 	position: relative;
