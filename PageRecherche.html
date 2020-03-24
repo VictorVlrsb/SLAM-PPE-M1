@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+    <link rel="stylesheet" href="CSSPageRecherche.css">
+    <title> Recherche </title>
+</head>
+
+
+<body>
+<h1>Recherchez le bien qui vous correspond</h1>
+
+  <ul>
+    <li><a href="PageModèle.html">Accueil</a></li>
+  </ul>
+
+<form action="recherche.php" method ="POST">
+  <fieldset>
+    <label for="typeDeBien">Type de bien :</label>
+    <select name ="type" id="typeBien">
+      <option value = "maison">Maison</option>
+      <option value = "appartement">Appartement</option>
+      <option value = "lc">Local commercial</option>
+      <option value = "terrainNu">Terrain nu</option>
+      <option value = "immeuble">Immeuble</option>
+    </select>
+
+    <br><br>
+    <label for="lieux">Lieux :</label>
+    <select>
+      <option value="roubaix">Roubaix</option>
+      <option value="tourcoing">Tourcoing</option>
+      <option value="wattrelos">Wattrelos</option>
+    </select>
+
+    <br><br>
+
+    <label for="budget">Budget :</label>
+    <input type="text" name="budget" id="budget" maxlength="20" placeholder="Votre budget maximum" required/>
+
+    <br><br>
+
+    <label for="jardin">Jardin </label>
+    <input type="checkbox" name="jardin" id="jardin"/>
+
+    <br><br>
+
+    <label for="surface">Surface entre :</label>
+    <input type="text" name="surfaceMin" id="surfaceMin" maxlength="10" placeholder="La surface minimum" required/>
+    et
+    <input type="text" name="surfaceMax" id="surfaceMax" maxlength="10" placeholder="La surface maximum" required/> (exprimée en Km)
+
+    <br><br>
+
+    <label for="pieces">Nombre de pièces :</label>
+    <select>
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+    </select>
+
+    (Laisser 0 s'il s'agit d'un Immeuble/Terrain Nu)
+
+    <br><br>
+
+    <button type="reset" name="effacer" value="Rétablir">Effacer</button>
+
+    <button type="submit" value = "chercher" name="chercher">Rechercher</button>
+  </fieldset>
+</form>
+
+<br>
+
+
+<footer class="footer">
+    <a href="Contact.html">
+        Contact</a>
+</footer>
+
+</body>
+</html>
