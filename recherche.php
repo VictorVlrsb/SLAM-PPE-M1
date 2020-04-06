@@ -7,43 +7,27 @@
     <body>
         <?php
 
+        include_once 'mesFonctions.php';
+
         $type = $_POST['type'];
-          echo "Type de bien cherché ".$type;
-
-          echo "<br>";
-          echo "<br>";
-
-          $lieux = $_POST['lieux'];
-            echo "Situé à ".$lieux;
-
-            echo "<br>";
-            echo "<br>";
-
-            $budget = $_POST['budget'];
-            echo "Pour un budget de ".$budget." euros";
-
-            echo "<br>";
-            echo "<br>";
-
-            if(isset($_POST['jardin'])){
+        $lieux = $_POST['lieux'];
+        $budget = $_POST['budget'];
+        if(isset($_POST['jardin'])){
                 $check= $_POST['jardin'];
-                echo "Avec un jardin";
+                $superficiejardin = 1;
+          }
+          else{
+            $superficiejardin = 100000000;
           }
 
-          echo "<br>";
-          echo "<br>";
-
-          $surfaceMin = $_POST['surfaceMin'];
-          $surfaceMax = $_POST['surfaceMax'];
-          echo "Pour une surface comprise entre ".$surfaceMin." et ".$surfaceMax." m²";
-
-          echo "<br>";
-          echo "<br>";
-
-          $pieces = $_POST['pieces'];
-          echo "Avec ".$pieces." pièces";
-
-
+          $surfMin = $_POST['surfMin'];
+          $surfMax = $_POST['surfMax'];
+          $connexion= connexion();
+          $nbrpieces = $_POST['pieces'];
+          var_dump($superficiejardin,$nbrpieces,$surfMin,$surfMax,$budget,$lieux,$type);
+          var_dump($connexion);
+          echo 'Test chercherbien';
+          var_dump(chercherbien(connexion(),$superficiejardin,$nbrpieces,$surfMin,$surfMax,$budget,$lieux,$type));
         ?>
     </body>
 </html>
