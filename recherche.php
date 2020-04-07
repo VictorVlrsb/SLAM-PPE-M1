@@ -17,17 +17,15 @@
                 $superficiejardin = 1;
           }
           else{
-            $superficiejardin = 100000000;
+            $superficiejardin = 0;
           }
 
           $surfMin = $_POST['surfMin'];
           $surfMax = $_POST['surfMax'];
           $connexion= connexion();
           $nbrpieces = $_POST['pieces'];
-          var_dump($superficiejardin,$nbrpieces,$surfMin,$surfMax,$budget,$lieux,$type);
-          var_dump($connexion);
-          echo 'Test chercherbien';
-          var_dump(chercherbien(connexion(),$superficiejardin,$nbrpieces,$surfMin,$surfMax,$budget,$lieux,$type));
+		  
+          var_dump(chercherbien($connexion,$superficiejardin,$nbrpieces,$surfMin,$surfMax,$budget,$lieux,$type));
         ?>
     </body>
 </html>
