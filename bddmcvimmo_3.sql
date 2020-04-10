@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 30 Mars 2020 à 14:13
+-- Généré le :  Ven 10 Avril 2020 à 19:08
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -83,7 +83,10 @@ CREATE TABLE `localisation` (
 
 INSERT INTO `localisation` (`idLocalisation`, `ville`, `cp`) VALUES
 (1, 'Roubaix', 59100),
-(2, 'Lille', 59000);
+(2, 'Lille', 59000),
+(3, 'Tourcoing', 59200),
+(4, 'Villeneuve-d\'Ascq', 59650),
+(5, 'Halluin', 59250);
 
 -- --------------------------------------------------------
 
@@ -106,6 +109,25 @@ INSERT INTO `type` (`idType`, `libelle`) VALUES
 (3, 'Locaux Commerciaux'),
 (4, 'Immeuble'),
 (5, 'Terrains nus');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `mdp` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `users`
+--
+
+INSERT INTO `users` (`id`, `email`, `mdp`) VALUES
+(1, 'mcvimmo@gmail.com', 'mcvimmo');
 
 --
 -- Index pour les tables exportées
@@ -132,6 +154,12 @@ ALTER TABLE `type`
   ADD PRIMARY KEY (`idType`);
 
 --
+-- Index pour la table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT pour les tables exportées
 --
 
@@ -139,7 +167,12 @@ ALTER TABLE `type`
 -- AUTO_INCREMENT pour la table `bien`
 --
 ALTER TABLE `bien`
-  MODIFY `idBien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `idBien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+--
+-- AUTO_INCREMENT pour la table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Contraintes pour les tables exportées
 --

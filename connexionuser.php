@@ -6,4 +6,5 @@ $login = $_POST['email'];
 $mdp = $_POST['mdp'];
 
 var_dump(checkUser(connexion(), $login, $mdp));
+header("Location: PageBiens.html")
 ?>

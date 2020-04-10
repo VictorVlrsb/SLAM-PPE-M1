@@ -33,8 +33,7 @@ function checkUser($objPDO, $login, $mdp) {
         $bv1 = $monObjPdoStatement->bindValue(':email', $login, PDO::PARAM_STR);
         $req = $monObjPdoStatement->execute();
         $lemdp = $monObjPdoStatement->fetch();
-        $pwd = $lemdp[0];
-        if (checkPWD($mdp, $pwd) == true) {
+        if (checkPWD($mdp, $lemdp) == true) {
             echo 'Vous êtes connecté avec vos identifiants.';
         }
     }
@@ -61,6 +60,33 @@ function chercherbien($connexion,$superficiejardin,$nbrpieces,$surfMin,$surfMax,
     $reqExec = $monObjPdoStatement->execute();
     $lesbiens = $monObjPdoStatement->fetchAll();
     return $lesbiens;
+}
+
+function ajouterBien($objPDO,$superficieJardin,$nbrpieces,$rue,$surface,$prix,$description,$idLocalisation,$idType){
+  $monObjPdoStatement=$objPDO->prepare('Insert into bien values (null,superificieJardin,nbrpieces,rue,surface,prix,description,idLocalisation,idType)');
+  $bv1=$monObjPdoStatement->bindValue(':superficieJardin',$superficieJardin, PDO::PARAM_INT);
+  $bv2=$monObjPdoStatement->bindValue(':nbrpieces',$nbrpieces, PDO::PARAM_INT);
+  $bv3=$monObjPdoStatement->bindValue(':rue',$rue, PDO::PARAM_STR);
+  $bv4=$monObjPdoStatement->bindValue(':surface',$surface, PDO::PARAM_INT);
+  $bv5=$monObjPdoStatement->bindValue(':prix',$prix, PDO::PARAM_INT);
+  $bv6=$monObjPdoStatement->bindValue(':description',$description, PDO::PARAM_STR);
+  $bv7=$monObjPdoStatement->bindValue(':idLocalisation',$idLocalisation, PDO::PARAM_INT);
+  $bv8=$monObjPdoStatement->bindValue(':idType',$idType, PDO::PARAM_INT);
+  $monObjPdoStatement->execute();
+  $req=$monObjPdoStatement->fetchall();
+  return $req;
+}
+
+function supprimerBien($objPDO,$idBien){
+  $monObjPdoStatement=$objPDO->prepare('Delete * from bien where idBien=:idBien');
+  $bv1=$monObjPdoStatement->bindValue(':idBien',$idBien,PDO::PARAM_STR);
+  $monObjPdoStatement->execute();
+  $req=$monObjPdoStatement->fetch();
+  return $req;
+}
+
+function modifierBien($objPDO){
+  return null;
 }
 
 
