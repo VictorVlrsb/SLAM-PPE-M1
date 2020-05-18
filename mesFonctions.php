@@ -40,11 +40,19 @@ function checkUser($objPDO, $login, $mdp) {
 }
 
 function chercherbien($connexion,$superficiejardin,$nbrpieces,$surfMin,$surfMax,$budget,$idLocalisation,$idType){
+  $monObjPdoStatement =  $connexion->prepare('INSERT INTO statsrecherche VALUES(null, null, :budget, :idLocalisation, :surfMin, :surfMax)');
+  $bvc3=$monObjPdoStatement->bindValue(':surfMin',$surfMin,PDO::PARAM_STR);
+  $bvc4=$monObjPdoStatement->bindValue(':surfMax',$surfMax,PDO::PARAM_STR);
+  $bvc5=$monObjPdoStatement->bindValue(':budget',$budget,PDO::PARAM_STR);
+  $bvc6=$monObjPdoStatement->bindValue(':idLocalisation',$idLocalisation,PDO::PARAM_STR);
+  $okExecution = $monObjPdoStatement ->execute();
+
+
     $monObjPdoStatement =  $connexion->prepare('SELECT * FROM bien WHERE nbrpieces >= :nbrpieces AND superficiejardin >= :superficiejardin AND surface BETWEEN :surfMin AND :surfMax AND prix <= :budget AND idLocalisation = :idLocalisation AND idType = :idType');
     $bvc1=$monObjPdoStatement->bindValue(':nbrpieces',$nbrpieces,PDO::PARAM_STR);
 
 	$superficiejardin0 = 100000000;
-	
+
 	if($superficiejardin > 0){
 		$bvc2=$monObjPdoStatement->bindValue(':superficiejardin',$superficiejardin,PDO::PARAM_STR);
 	}

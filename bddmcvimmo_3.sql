@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Ven 10 Avril 2020 à 19:08
+-- Généré le :  Lun 18 Mai 2020 à 13:41
 -- Version du serveur :  5.7.11
--- Version de PHP :  5.6.18
+-- Version de PHP :  7.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -46,7 +46,6 @@ INSERT INTO `bien` (`idBien`, `superficiejardin`, `nbrpieces`, `rue`, `surface`,
 (1, 50, 4, 'Rue de l\'Epeule ', 80, 149500, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar sed ante vel sodales. Curabitur vitae ipsum in velit facilisis rhoncus. Suspendisse suscipit tellus ac vestibulum vestibulum.', 1, 1),
 (2, 30, 4, 'Rue de Lannoy', 90, 229500, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar sed ante vel sodales. Curabitur vitae ipsum in velit facilisis rhoncus. Suspendisse suscipit tellus ac vestibulum vestibulum.', 1, 1),
 (3, 15, 4, 'Rue Thiers', 60, 180500, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar sed ante vel sodales. Curabitur vitae ipsum in velit facilisis rhoncus. Suspendisse suscipit tellus ac vestibulum vestibulum.', 1, 1),
-(4, 20, 4, 'Rue Mirabeau', 70, 162000, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar sed ante vel sodales. Curabitur vitae ipsum in velit facilisis rhoncus. Suspendisse suscipit tellus ac vestibulum vestibulum.', 1, 1),
 (5, 10, 4, 'Rue Ingres', 40, 120000, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar sed ante vel sodales. Curabitur vitae ipsum in velit facilisis rhoncus. Suspendisse suscipit tellus ac vestibulum vestibulum.', 1, 1),
 (6, 0, 3, 'Rue de Lille', 30, 80500, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar sed ante vel sodales. Curabitur vitae ipsum in velit facilisis rhoncus. Suspendisse suscipit tellus ac vestibulum vestibulum.', 1, 2),
 (7, 0, 3, 'Rue Jouffroy', 30, 69420, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar sed ante vel sodales. Curabitur vitae ipsum in velit facilisis rhoncus. Suspendisse suscipit tellus ac vestibulum vestibulum.', 1, 2),
@@ -87,6 +86,28 @@ INSERT INTO `localisation` (`idLocalisation`, `ville`, `cp`) VALUES
 (3, 'Tourcoing', 59200),
 (4, 'Villeneuve-d\'Ascq', 59650),
 (5, 'Halluin', 59250);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `statsrecherche`
+--
+
+CREATE TABLE `statsrecherche` (
+  `id` int(11) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `prixMax` int(11) NOT NULL,
+  `ville` varchar(255) NOT NULL,
+  `surfaceMin` int(11) NOT NULL,
+  `surfaceMax` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `statsrecherche`
+--
+
+INSERT INTO `statsrecherche` (`id`, `date`, `prixMax`, `ville`, `surfaceMin`, `surfaceMax`) VALUES
+(1, '2020-05-18 13:40:22', 250000, '1', 10, 100);
 
 -- --------------------------------------------------------
 
@@ -148,6 +169,12 @@ ALTER TABLE `localisation`
   ADD PRIMARY KEY (`idLocalisation`);
 
 --
+-- Index pour la table `statsrecherche`
+--
+ALTER TABLE `statsrecherche`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `type`
 --
 ALTER TABLE `type`
@@ -167,7 +194,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `bien`
 --
 ALTER TABLE `bien`
-  MODIFY `idBien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `idBien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+--
+-- AUTO_INCREMENT pour la table `statsrecherche`
+--
+ALTER TABLE `statsrecherche`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
